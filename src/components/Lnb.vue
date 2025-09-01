@@ -2,7 +2,7 @@
   <a-menu
     theme="dark"
     mode="inline"
-    :selectedKeys="[selectdKey]"
+    :selectedKeys="[selectedKey]"
     @click="onClick"
   >
     <template v-for="g in groups" :key="g.title">
@@ -16,25 +16,35 @@
 import { computed, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-type LnbItem = { name: string; title: string; path: string; section?: string };
-const props = defineProps<{ items: LnbItem[] }>();
+interface LnbItem {
+  name: string;
+  title: string;
+  path: string;
+  section?: string;
+}
+const props = defineProps<{ items?: LnbItem[] }>();
 
 const router = useRouter();
 const route = useRoute();
 const selectedKey = ref<string>("");
 
 /** 기본값: router meta로 자동 생성 (meta.title 필수) */
-const autoItems = computed<LnbItem[]>(() =>
-  router
-    .getRoutes()
-    .filter((r) => !r.children.length && r.meta?.title)
-    .map((r) => ({
-      name: r.name as string,
-      title: r.meta?.title as string,
-      path: r.path,
-      section: (r.matched[0]?.meta?.section as string) || "Docs",
-    }))
-);
+const autoItems = computed<LnbItem[]>(() => {
+  try {
+    return router
+      .getRoutes()
+      .filter((r) => !r.children.length && r.meta?.title)
+      .map((r) => ({
+        name: r.name as string,
+        title: r.meta?.title || "Untitled",
+        path: r.path,
+        section: r.meta?.section || "Docs",
+      }));
+  } catch (error) {
+    console.error("Error in autoItems:", error);
+    return [];
+  }
+});
 
 const items = computed(() =>
   props.items?.length ? props.items : autoItems.value

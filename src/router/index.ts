@@ -1,6 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
+// 라우터 메타데이터 타입 정의
+declare module "vue-router" {
+  interface RouteMeta {
+    title: string;
+    section?: string;
+  }
+}
+
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
