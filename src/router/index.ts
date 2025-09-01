@@ -17,10 +17,22 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/Home.vue"),
   },
   {
-    path: "/about",
-    name: "About",
-    meta: { title: "About", section: "Intro" },
-    component: () => import("../pages/About.vue"),
+    path: "/multichart",
+    name: "MultiChart",
+    meta: { title: "Multi-Chart", section: "Tools" },
+    component: () => import("../pages/MultiChart.vue"),
+  },
+  {
+    path: "/playchart",
+    name: "PlayChart",
+    meta: { title: "Play-Chart", section: "Tools" },
+    component: () => import("../pages/PlayChart.vue"),
+  },
+  {
+    path: "/detailchart",
+    name: "DetailChart",
+    meta: { title: "Detail-Chart", section: "Tools" },
+    component: () => import("../pages/DetailChart.vue"),
   },
 ];
 

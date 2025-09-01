@@ -8,7 +8,7 @@
 
     <!-- Content 영역 -->
     <a-layout>
-      <a-layout-header class="bg-white px-4">Header</a-layout-header>
+      <a-layout-header class="bg-white px-4" style="height: 48.09px" />
       <a-layout-content class="p-4 bg-gray-50">
         <router-view />
       </a-layout-content>
