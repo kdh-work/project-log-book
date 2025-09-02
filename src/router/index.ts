@@ -34,6 +34,24 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "Detail-Chart", section: "Tools" },
     component: () => import("../pages/DetailChart.vue"),
   },
+  {
+    path: "/fixlistOrigin",
+    name: "FixListOrigin",
+    meta: { title: "Fix-List-Origin", section: "Docs" },
+    component: () => import("../pages/FixListOrigin.vue"),
+  },
+  {
+    path: "/fixlist",
+    name: "FixList",
+    meta: { title: "Fix-List", section: "Docs" },
+    component: () => import("../pages/FixList.vue"),
+  },
+  {
+    path: "/fixlist2",
+    name: "FixList2",
+    meta: { title: "Fix-List2", section: "Docs" },
+    component: () => import("../pages/FixList2.vue"),
+  },
 ];
 
 const router = createRouter({

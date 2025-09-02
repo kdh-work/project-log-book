@@ -5,10 +5,12 @@
       각 차트를 클릭하여 모달로 확대해서 볼 수 있습니다.
     </p>
 
-    <!-- 6개 차트를 2x3 그리드로 배치 -->
-    <div class="grid grid-cols-2 gap-4">
+    <!-- 반응형 그리드: 화면 크기에 따라 열 수 조정 -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-4"
+    >
       <!-- 차트 1: 막대 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow relative">
+      <div class="bg-white p-4 rounded-lg shadow relative min-h-[300px]">
         <div class="flex justify-between items-center mb-2">
           <h3 class="text-lg font-semibold">막대 차트</h3>
           <button
@@ -18,11 +20,11 @@
             확대 보기
           </button>
         </div>
-        <div ref="barChart" class="w-full h-64"></div>
+        <div ref="barChart" class="w-full h-64 min-h-[256px]"></div>
       </div>
 
       <!-- 차트 2: 선 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow relative">
+      <div class="bg-white p-4 rounded-lg shadow relative min-h-[300px]">
         <div class="flex justify-between items-center mb-2">
           <h3 class="text-lg font-semibold">선 차트</h3>
           <button
@@ -32,11 +34,11 @@
             확대 보기
           </button>
         </div>
-        <div ref="lineChart" class="w-full h-64"></div>
+        <div ref="lineChart" class="w-full h-64 min-h-[256px]"></div>
       </div>
 
       <!-- 차트 3: 파이 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow relative">
+      <div class="bg-white p-4 rounded-lg shadow relative min-h-[300px]">
         <div class="flex justify-between items-center mb-2">
           <h3 class="text-lg font-semibold">파이 차트</h3>
           <button
@@ -46,11 +48,11 @@
             확대 보기
           </button>
         </div>
-        <div ref="pieChart" class="w-full h-64"></div>
+        <div ref="pieChart" class="w-full h-64 min-h-[256px]"></div>
       </div>
 
       <!-- 차트 4: 도넛 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow relative">
+      <div class="bg-white p-4 rounded-lg shadow relative min-h-[300px]">
         <div class="flex justify-between items-center mb-2">
           <h3 class="text-lg font-semibold">도넛 차트</h3>
           <button
@@ -60,11 +62,11 @@
             확대 보기
           </button>
         </div>
-        <div ref="doughnutChart" class="w-full h-64"></div>
+        <div ref="doughnutChart" class="w-full h-64 min-h-[256px]"></div>
       </div>
 
       <!-- 차트 5: 영역 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow relative">
+      <div class="bg-white p-4 rounded-lg shadow relative min-h-[300px]">
         <div class="flex justify-between items-center mb-2">
           <h3 class="text-lg font-semibold">영역 차트</h3>
           <button
@@ -74,11 +76,11 @@
             확대 보기
           </button>
         </div>
-        <div ref="areaChart" class="w-full h-64"></div>
+        <div ref="areaChart" class="w-full h-64 min-h-[256px]"></div>
       </div>
 
       <!-- 차트 6: 산점도 -->
-      <div class="bg-white p-4 rounded-lg shadow relative">
+      <div class="bg-white p-4 rounded-lg shadow relative min-h-[300px]">
         <div class="flex justify-between items-center mb-2">
           <h3 class="text-lg font-semibold">산점도</h3>
           <button
@@ -88,7 +90,7 @@
             확대 보기
           </button>
         </div>
-        <div ref="scatterChart" class="w-full h-64"></div>
+        <div ref="scatterChart" class="w-full h-64 min-h-[256px]"></div>
       </div>
     </div>
 

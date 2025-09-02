@@ -5,42 +5,62 @@
       다양한 차트를 한 번에 볼 수 있는 멀티 차트 도구입니다.
     </p>
 
-    <!-- 6개 차트를 2x3 그리드로 배치 -->
-    <div class="grid grid-cols-2 gap-4">
+    <!-- 반응형 그리드: 화면 크기에 따라 열 수 조정 -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-6"
+    >
       <!-- 차트 1: 막대 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow min-h-[300px] overflow-hidden">
         <h3 class="text-lg font-semibold mb-2">막대 차트</h3>
-        <div ref="barChart" class="w-full h-64"></div>
+        <div
+          ref="barChart"
+          class="w-full h-64 min-h-[256px] overflow-hidden"
+        ></div>
       </div>
 
       <!-- 차트 2: 선 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow min-h-[300px] overflow-hidden">
         <h3 class="text-lg font-semibold mb-2">선 차트</h3>
-        <div ref="lineChart" class="w-full h-64"></div>
+        <div
+          ref="lineChart"
+          class="w-full h-64 min-h-[256px] overflow-hidden"
+        ></div>
       </div>
 
       <!-- 차트 3: 파이 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow min-h-[300px] overflow-hidden">
         <h3 class="text-lg font-semibold mb-2">파이 차트</h3>
-        <div ref="pieChart" class="w-full h-64"></div>
+        <div
+          ref="pieChart"
+          class="w-full h-64 min-h-[256px] overflow-hidden"
+        ></div>
       </div>
 
       <!-- 차트 4: 도넛 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow min-h-[300px] overflow-hidden">
         <h3 class="text-lg font-semibold mb-2">도넛 차트</h3>
-        <div ref="doughnutChart" class="w-full h-64"></div>
+        <div
+          ref="doughnutChart"
+          class="w-full h-64 min-h-[256px] overflow-hidden"
+        ></div>
       </div>
 
       <!-- 차트 5: 영역 차트 -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow min-h-[300px] overflow-hidden">
         <h3 class="text-lg font-semibold mb-2">영역 차트</h3>
-        <div ref="areaChart" class="w-full h-64"></div>
+        <div
+          ref="areaChart"
+          class="w-full h-64 min-h-[256px] overflow-hidden"
+        ></div>
       </div>
 
       <!-- 차트 6: 산점도 -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow min-h-[300px] overflow-hidden">
         <h3 class="text-lg font-semibold mb-2">산점도</h3>
-        <div ref="scatterChart" class="w-full h-64"></div>
+        <div
+          ref="scatterChart"
+          class="w-full h-64 min-h-[256px] overflow-hidden"
+        ></div>
       </div>
     </div>
   </div>
