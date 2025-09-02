@@ -20,7 +20,7 @@
           >
             {{ isPlaying ? "정지" : "재생" }}
           </button>
-          <span class="text-sm text-gray-600">
+          <span class="text-sm text-gray-600 ml-4">
             상태: {{ isPlaying ? "실시간 업데이트 중" : "정지됨" }}
           </span>
         </div>

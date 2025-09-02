@@ -40,17 +40,23 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "Fix-List-Origin", section: "Docs" },
     component: () => import("../pages/FixListOrigin.vue"),
   },
-  {
+    {
     path: "/fixlist",
     name: "FixList",
     meta: { title: "Fix-List", section: "Docs" },
     component: () => import("../pages/FixList.vue"),
   },
   {
-    path: "/fixlist2",
-    name: "FixList2",
-    meta: { title: "Fix-List2", section: "Docs" },
-    component: () => import("../pages/FixList2.vue"),
+    path: "/playtimeserieschart",
+    name: "PlayTimeSeriesChart",
+    meta: { title: "Play Time Series Chart", section: "Tools" },
+    component: () => import("../pages/PlayTimeSeriesChart.vue"),
+  },
+  {
+    path: "/dynamicstep",
+    name: "DynamicStep",
+    meta: { title: "Dynamic Step", section: "Tools" },
+    component: () => import("../pages/DynamicStep.vue"),
   },
 ];
 

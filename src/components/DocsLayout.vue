@@ -2,7 +2,6 @@
   <a-layout style="height: 100vh; overflow: hidden">
     <!-- LNB 영역 - 고정 -->
     <a-layout-sider
-      collapsible
       :style="{
         height: '100vh',
         position: 'fixed',
@@ -10,9 +9,10 @@
         top: 0,
         bottom: 0,
         zIndex: 1000,
+        width: '200px',
       }"
     >
-      <div class="text-white text-center py-4 font-bold">Project</div>
+      <div class="text-white text-center py-4 font-bold">Project Log</div>
       <Lnb />
     </a-layout-sider>
 

@@ -206,7 +206,7 @@
       >
         <div class="flex items-center mb-4">
           <div
-            class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4"
+            class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4"
           >
             <span class="text-2xl">🔧</span>
           </div>
@@ -496,11 +496,11 @@
       <h3 class="text-xl font-bold mb-4">📈 해결 현황 요약</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="text-center">
-          <div class="text-3xl font-bold">3</div>
+          <div class="text-3xl font-bold">8</div>
           <div class="text-blue-100">해결된 문제</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold">4</div>
+          <div class="text-3xl font-bold">7</div>
           <div class="text-blue-100">수정된 파일</div>
         </div>
         <div class="text-center">

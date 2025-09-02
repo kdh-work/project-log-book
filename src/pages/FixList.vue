@@ -8,6 +8,64 @@
     <!-- 문제 해결 카드들 -->
     <div class="space-y-6">
       <ProblemCard
+        icon="🗑️"
+        title="불필요한 파일 정리"
+        description="FixList2.vue 파일 삭제로 코드베이스 정리"
+        date="2025.09.03"
+        color="orange"
+        :problems="[
+          'FixList2.vue 파일이 사용되지 않음',
+          '중복된 기능으로 인한 혼란',
+          '프로젝트 구조 복잡성 증가',
+        ]"
+        :solutions="[
+          'FixList2.vue 파일 완전 삭제',
+          '중복 기능 통합',
+          '코드베이스 단순화',
+        ]"
+        files="src/pages/FixList2.vue (삭제됨)"
+      />
+
+      <ProblemCard
+        icon="📈"
+        title="시계열 차트 기능 추가"
+        description="PlayTimeSeriesChart 페이지 신규 구현"
+        date="2025.09.03"
+        color="purple"
+        :problems="[
+          '시계열 데이터 시각화 기능 부재',
+          '시간 기반 차트 분석 도구 부족',
+          '데이터 트렌드 분석 기능 미흡',
+        ]"
+        :solutions="[
+          'PlayTimeSeriesChart.vue 페이지 신규 생성',
+          '시계열 차트 컴포넌트 구현',
+          '시간 기반 데이터 시각화 기능 추가',
+        ]"
+        files="src/pages/PlayTimeSeriesChart.vue"
+      />
+
+      <ProblemCard
+        icon="🔄"
+        title="동적 스텝 시스템 구축"
+        description="Pinia store 기반 동적 스텝 처리 시스템 구현"
+        date="2025.09.03"
+        color="blue"
+        :problems="[
+          '정적 스텝 처리로 인한 유연성 부족',
+          '상태 관리 시스템 부재',
+          '스텝 간 데이터 공유 및 동기화 문제',
+        ]"
+        :solutions="[
+          'Pinia store 기반 상태 관리 시스템 구축',
+          'StepOne~StepFive 컴포넌트 체계적 구현',
+          'DynamicStep 페이지로 동적 스텝 처리',
+          'stores 디렉토리 구조 정립',
+        ]"
+        files="src/components/StepOne.vue, StepTwo.vue, StepThree.vue, StepFour.vue, StepFive.vue, src/pages/DynamicStep.vue, src/stores/"
+      />
+
+      <ProblemCard
         icon="🎯"
         title="레이아웃 스크롤 문제"
         description="LNB와 Header 고정, Content만 스크롤"
@@ -166,11 +224,11 @@
       <h3 class="text-xl font-bold mb-4">📈 해결 현황 요약</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="text-center">
-          <div class="text-3xl font-bold">8</div>
+          <div class="text-3xl font-bold">11</div>
           <div class="text-blue-100">해결된 문제</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold">7</div>
+          <div class="text-3xl font-bold">10</div>
           <div class="text-blue-100">수정된 파일</div>
         </div>
         <div class="text-center">
