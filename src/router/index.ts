@@ -40,7 +40,7 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "Fix-List-Origin", section: "Docs" },
     component: () => import("../pages/FixListOrigin.vue"),
   },
-    {
+  {
     path: "/fixlist",
     name: "FixList",
     meta: { title: "Fix-List", section: "Docs" },
