@@ -1,9 +1,9 @@
 <template>
   <div class="p-4">
     <h1 class="text-2xl font-bold mb-4">Play Time Series Chart</h1>
-         <p class="text-gray-600 mb-6">
-       6개의 타임시리즈 차트가 10초마다 실시간으로 업데이트됩니다.
-     </p>
+    <p class="text-gray-600 mb-6">
+      6개의 타임시리즈 차트가 10초마다 실시간으로 업데이트됩니다.
+    </p>
 
     <!-- 컨트롤 버튼 -->
     <div class="mb-6 flex items-center space-x-4">
@@ -36,31 +36,41 @@
 
       <!-- 차트 2: 메모리 사용률 -->
       <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold mb-3 text-green-600">메모리 사용률 (%)</h3>
+        <h3 class="text-lg font-semibold mb-3 text-green-600">
+          메모리 사용률 (%)
+        </h3>
         <div ref="memoryChart" class="w-full h-64"></div>
       </div>
 
       <!-- 차트 3: 네트워크 트래픽 -->
       <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold mb-3 text-purple-600">네트워크 트래픽 (MB/s)</h3>
+        <h3 class="text-lg font-semibold mb-3 text-purple-600">
+          네트워크 트래픽 (MB/s)
+        </h3>
         <div ref="networkChart" class="w-full h-64"></div>
       </div>
 
       <!-- 차트 4: 디스크 I/O -->
       <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold mb-3 text-orange-600">디스크 I/O (MB/s)</h3>
+        <h3 class="text-lg font-semibold mb-3 text-orange-600">
+          디스크 I/O (MB/s)
+        </h3>
         <div ref="diskChart" class="w-full h-64"></div>
       </div>
 
       <!-- 차트 5: 온도 -->
       <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold mb-3 text-red-600">시스템 온도 (°C)</h3>
+        <h3 class="text-lg font-semibold mb-3 text-red-600">
+          시스템 온도 (°C)
+        </h3>
         <div ref="temperatureChart" class="w-full h-64"></div>
       </div>
 
       <!-- 차트 6: 전력 소비 -->
       <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold mb-3 text-indigo-600">전력 소비 (W)</h3>
+        <h3 class="text-lg font-semibold mb-3 text-indigo-600">
+          전력 소비 (W)
+        </h3>
         <div ref="powerChart" class="w-full h-64"></div>
       </div>
     </div>
@@ -90,8 +100,7 @@ let powerChartInstance: echarts.ECharts | null = null;
 // 상태 관리
 const isPlaying = ref(false);
 const nextUpdateTime = ref("--:--");
-let updateInterval: NodeJS.Timeout | null = null;
-let updateTimer: NodeJS.Timeout | null = null;
+let updateInterval: number | null = null;
 
 // 차트 데이터 (최근 20개 포인트 유지)
 const maxDataPoints = 20;
@@ -106,10 +115,10 @@ const chartData = {
 
 // 현재 시간을 포맷팅하는 함수
 function formatTime(date: Date): string {
-  return date.toLocaleTimeString('ko-KR', { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit' 
+  return date.toLocaleTimeString("ko-KR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
   });
 }
 
@@ -155,16 +164,16 @@ function getChartOption(
   return {
     title: {
       text: title,
-      textStyle: { fontSize: 14, fontWeight: 'bold' },
-      left: 'center',
-      top: 10
+      textStyle: { fontSize: 14, fontWeight: "bold" },
+      left: "center",
+      top: 10,
     },
     tooltip: {
-      trigger: 'axis',
-      formatter: function(params: any) {
+      trigger: "axis",
+      formatter: function (params: any) {
         const data = params[0];
-        let timeStr = '';
-        
+        let timeStr = "";
+
         // 타임시리즈 차트에서는 data.value[0]에 시간 값이 들어있음
         if (data.value && data.value[0]) {
           try {
@@ -191,55 +200,57 @@ function getChartOption(
           }
         } else {
           // 시간 정보가 없는 경우
-          timeStr = '--:--:--';
+          timeStr = "--:--:--";
         }
-        
+
         const value = Math.round(data.value[1] * 100) / 100; // 소수점 2번째 자리까지 반올림
         return `${timeStr} - ${value}${yAxisName}`;
-      }
+      },
     },
     grid: {
-      left: '10%',
-      right: '10%',
-      top: '25%',
-      bottom: '15%'
+      left: "10%",
+      right: "10%",
+      top: "25%",
+      bottom: "15%",
     },
     xAxis: {
-      type: 'time',
+      type: "time",
       axisLabel: {
-        formatter: function(value: number) {
+        formatter: function (value: number) {
           const date = new Date(value);
           return formatTime(date);
         },
         interval: 0,
         rotate: 45,
         fontSize: 10,
-        margin: 15
+        margin: 15,
       },
       axisTick: {
-        alignWithLabel: true
-      }
+        alignWithLabel: true,
+      },
     },
     yAxis: {
-      type: 'value',
+      type: "value",
       name: yAxisName,
-      nameLocation: 'middle',
-      nameGap: 30
+      nameLocation: "middle",
+      nameGap: 30,
     },
-         series: [{
-       name: title,
-       type: 'line',
-       data: data,
-       smooth: false,
-       symbol: 'none',
-       lineStyle: { color: color, width: 2 },
-       areaStyle: {
-         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-           { offset: 0, color: color + '40' },
-           { offset: 1, color: color + '10' }
-         ])
-       }
-     }]
+    series: [
+      {
+        name: title,
+        type: "line",
+        data: data,
+        smooth: false,
+        symbol: "none",
+        lineStyle: { color: color, width: 2 },
+        areaStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: color + "40" },
+            { offset: 1, color: color + "10" },
+          ]),
+        },
+      },
+    ],
   };
 }
 
@@ -255,14 +266,14 @@ function updateChartData() {
     network: generateNetworkData(),
     disk: generateDiskData(),
     temperature: generateTemperatureData(),
-    power: generatePowerData()
+    power: generatePowerData(),
   };
 
   // 데이터 추가 및 최대 포인트 수 유지
-  Object.keys(chartData).forEach(key => {
+  Object.keys(chartData).forEach((key) => {
     const chartKey = key as keyof typeof chartData;
     chartData[chartKey].push([timeStr, newData[chartKey]]);
-    
+
     if (chartData[chartKey].length > maxDataPoints) {
       chartData[chartKey].shift();
     }
@@ -271,32 +282,32 @@ function updateChartData() {
   // 차트 업데이트
   if (cpuChartInstance) {
     cpuChartInstance.setOption({
-      series: [{ data: chartData.cpu }]
+      series: [{ data: chartData.cpu }],
     });
   }
   if (memoryChartInstance) {
     memoryChartInstance.setOption({
-      series: [{ data: chartData.memory }]
+      series: [{ data: chartData.memory }],
     });
   }
   if (networkChartInstance) {
     networkChartInstance.setOption({
-      series: [{ data: chartData.network }]
+      series: [{ data: chartData.network }],
     });
   }
   if (diskChartInstance) {
     diskChartInstance.setOption({
-      series: [{ data: chartData.disk }]
+      series: [{ data: chartData.disk }],
     });
   }
   if (temperatureChartInstance) {
     temperatureChartInstance.setOption({
-      series: [{ data: chartData.temperature }]
+      series: [{ data: chartData.temperature }],
     });
   }
   if (powerChartInstance) {
     powerChartInstance.setOption({
-      series: [{ data: chartData.power }]
+      series: [{ data: chartData.power }],
     });
   }
 
@@ -308,34 +319,46 @@ function updateChartData() {
 function initCharts() {
   if (cpuChart.value) {
     cpuChartInstance = echarts.init(cpuChart.value);
-    cpuChartInstance.setOption(getChartOption('CPU 사용률', chartData.cpu, '#3B82F6', '%'));
+    cpuChartInstance.setOption(
+      getChartOption("CPU 사용률", chartData.cpu, "#3B82F6", "%")
+    );
   }
-  
+
   if (memoryChart.value) {
     memoryChartInstance = echarts.init(memoryChart.value);
-    memoryChartInstance.setOption(getChartOption('메모리 사용률', chartData.memory, '#10B981', '%'));
+    memoryChartInstance.setOption(
+      getChartOption("메모리 사용률", chartData.memory, "#10B981", "%")
+    );
   }
-  
+
   if (networkChart.value) {
     networkChartInstance = echarts.init(networkChart.value);
-    networkChartInstance.setOption(getChartOption('네트워크 트래픽', chartData.network, '#8B5CF6', 'MB/s'));
+    networkChartInstance.setOption(
+      getChartOption("네트워크 트래픽", chartData.network, "#8B5CF6", "MB/s")
+    );
   }
-  
+
   if (diskChart.value) {
     diskChartInstance = echarts.init(diskChart.value);
-    diskChartInstance.setOption(getChartOption('디스크 I/O', chartData.disk, '#F97316', 'MB/s'));
+    diskChartInstance.setOption(
+      getChartOption("디스크 I/O", chartData.disk, "#F97316", "MB/s")
+    );
   }
-  
+
   if (temperatureChart.value) {
     temperatureChartInstance = echarts.init(temperatureChart.value);
-    temperatureChartInstance.setOption(getChartOption('시스템 온도', chartData.temperature, '#EF4444', '°C'));
+    temperatureChartInstance.setOption(
+      getChartOption("시스템 온도", chartData.temperature, "#EF4444", "°C")
+    );
   }
-  
+
   if (powerChart.value) {
     powerChartInstance = echarts.init(powerChart.value);
-    powerChartInstance.setOption(getChartOption('전력 소비', chartData.power, '#6366F1', 'W'));
+    powerChartInstance.setOption(
+      getChartOption("전력 소비", chartData.power, "#6366F1", "W")
+    );
   }
-  
+
   // 모든 차트를 연결하여 동기화
   const allCharts = [
     cpuChartInstance,
@@ -343,9 +366,9 @@ function initCharts() {
     networkChartInstance,
     diskChartInstance,
     temperatureChartInstance,
-    powerChartInstance
-  ].filter(chart => chart !== null);
-  
+    powerChartInstance,
+  ].filter((chart) => chart !== null);
+
   if (allCharts.length > 0) {
     echarts.connect(allCharts);
   }
@@ -363,13 +386,13 @@ function togglePlay() {
 // 재생 시작 함수
 function startPlay() {
   isPlaying.value = true;
-  
+
   // 즉시 첫 데이터 생성
   updateChartData();
-  
+
   // 10초마다 업데이트
   updateInterval = setInterval(updateChartData, 10000);
-  
+
   // 다음 업데이트 시간 표시
   updateNextUpdateTime();
 }
@@ -377,12 +400,12 @@ function startPlay() {
 // 재생 정지 함수
 function stopPlay() {
   isPlaying.value = false;
-  
+
   if (updateInterval) {
     clearInterval(updateInterval);
     updateInterval = null;
   }
-  
+
   nextUpdateTime.value = "--:--";
 }
 
@@ -394,10 +417,10 @@ function handleResize() {
     networkChartInstance,
     diskChartInstance,
     temperatureChartInstance,
-    powerChartInstance
+    powerChartInstance,
   ];
-  
-  charts.forEach(chart => {
+
+  charts.forEach((chart) => {
     if (chart) {
       chart.resize();
     }
@@ -407,14 +430,14 @@ function handleResize() {
 // 컴포넌트 마운트 시
 onMounted(() => {
   initCharts();
-  window.addEventListener('resize', handleResize);
+  window.addEventListener("resize", handleResize);
 });
 
 // 컴포넌트 언마운트 시
 onUnmounted(() => {
   stopPlay();
-  window.removeEventListener('resize', handleResize);
-  
+  window.removeEventListener("resize", handleResize);
+
   // 차트 인스턴스 정리
   const charts = [
     cpuChartInstance,
@@ -422,10 +445,10 @@ onUnmounted(() => {
     networkChartInstance,
     diskChartInstance,
     temperatureChartInstance,
-    powerChartInstance
+    powerChartInstance,
   ];
-  
-  charts.forEach(chart => {
+
+  charts.forEach((chart) => {
     if (chart) {
       chart.dispose();
     }
