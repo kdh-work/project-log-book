@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://kdh-work.github.io/project-log-book/",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",

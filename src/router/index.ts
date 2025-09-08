@@ -61,8 +61,21 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL || '/project-log-book/'),
   routes,
+});
+
+// 라우터 디버깅
+router.beforeEach((to, from, next) => {
+  console.log("🚀 라우터 이동 시작:", { from: from.path, to: to.path, name: to.name });
+  next();
+});
+
+router.afterEach((to, from) => {
+  //console.log("✅ 라우터 이동 완료:", { from: from.path, to: to.path, name: to.name });
+  console.log("라우터 이동 완료 1: ", { from: from.path });
+  console.log("라우터 이동 완료 2: ", { to: to.path });
+  console.log("라우터 이동 완료 3: ", { name: to.name });
 });
 
 export default router;
