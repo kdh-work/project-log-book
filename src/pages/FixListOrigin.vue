@@ -7,7 +7,61 @@
 
     <!-- 문제 해결 카드들 -->
     <div class="space-y-6">
-      <!-- 문제 1: 레이아웃 스크롤 -->
+      <!-- 문제 1: GitHub Pages 동적 Import 실패 -->
+      <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-500">
+        <div class="flex items-center mb-4">
+          <div
+            class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4"
+          >
+            <span class="text-2xl">🚀</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-1">
+              <h3 class="text-xl font-bold text-gray-800 !mb-0">
+                GitHub Pages 동적 Import 실패 문제
+              </h3>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded-full"
+                :class="`bg-purple-100 text-$purple-800`"
+              >
+                2025.09.08
+              </span>
+            </div>
+            <p class="text-gray-600">배포 환경에서 동적 import가 전면적으로 실패하는 문제 해결</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-700 mb-2">❌ 문제 상황</h4>
+            <ul class="text-gray-600 space-y-1 text-sm">
+              <li>• GitHub Pages에서 동적 import 모듈 로드 실패</li>
+              <li>• <code class="bg-gray-100 px-1 rounded">Failed to fetch dynamically imported module</code> 에러 발생</li>
+              <li>• 모든 페이지에서 빈 화면 표시</li>
+              <li>• 라우터 이동은 되지만 컴포넌트 로드 실패</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-gray-700 mb-2">✅ 해결 방법</h4>
+            <ul class="text-gray-600 space-y-1 text-sm">
+              <li>• 동적 import를 정적 import로 전면 변경</li>
+              <li>• Vite 설정에서 <code class="bg-gray-100 px-1 rounded">manualChunks: undefined</code> 추가</li>
+              <li>• 라우터에서 <code class="bg-gray-100 px-1 rounded">import.meta.env.BASE_URL</code> 사용</li>
+              <li>• 모든 컴포넌트를 파일 상단에서 미리 import</li>
+              <li>• GitHub Pages 호환성 문제 완전 해결</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 p-3 bg-purple-50 rounded-lg">
+          <span class="text-sm text-purple-700">
+            <strong>파일:</strong> src/router/index.ts, vite.config.ts | <strong>상태:</strong> ✅ 해결됨
+          </span>
+        </div>
+      </div>
+
+      <!-- 문제 2: 레이아웃 스크롤 -->
       <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500">
         <div class="flex items-center mb-4">
           <div
@@ -69,7 +123,7 @@
         </div>
       </div>
 
-      <!-- 문제 2: 차트 겹침 -->
+      <!-- 문제 3: 차트 겹침 -->
       <div
         class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500"
       >
@@ -135,7 +189,7 @@
         </div>
       </div>
 
-      <!-- 문제 3: TypeScript 오류 -->
+      <!-- 문제 4: TypeScript 오류 -->
       <div
         class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-500"
       >
@@ -200,7 +254,7 @@
         </div>
       </div>
 
-      <!-- 문제 4: Lnb 컴포넌트 오타 수정 -->
+      <!-- 문제 5: Lnb 컴포넌트 오타 수정 -->
       <div
         class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500"
       >
@@ -259,7 +313,7 @@
         </div>
       </div>
 
-      <!-- 문제 5: 미사용 컴포넌트 정리 -->
+      <!-- 문제 6: 미사용 컴포넌트 정리 -->
       <div
         class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-indigo-500"
       >
@@ -313,7 +367,7 @@
         </div>
       </div>
 
-      <!-- 문제 6: 메뉴 시스템 통합 -->
+      <!-- 문제 7: 메뉴 시스템 통합 -->
       <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-teal-500">
         <div class="flex items-center mb-4">
           <div
@@ -365,7 +419,7 @@
         </div>
       </div>
 
-      <!-- 문제 7: 라우터 타입 import 문제 -->
+      <!-- 문제 8: 라우터 타입 import 문제 -->
       <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-pink-500">
         <div class="flex items-center mb-4">
           <div
@@ -423,7 +477,7 @@
         </div>
       </div>
 
-      <!-- 문제 8: 타입 정의 강화 -->
+      <!-- 문제 9: 타입 정의 강화 -->
       <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-cyan-500">
         <div class="flex items-center mb-4">
           <div
@@ -496,11 +550,11 @@
       <h3 class="text-xl font-bold mb-4">📈 해결 현황 요약</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="text-center">
-          <div class="text-3xl font-bold">8</div>
+          <div class="text-3xl font-bold">9</div>
           <div class="text-blue-100">해결된 문제</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold">7</div>
+          <div class="text-3xl font-bold">9</div>
           <div class="text-blue-100">수정된 파일</div>
         </div>
         <div class="text-center">

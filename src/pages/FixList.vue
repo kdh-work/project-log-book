@@ -8,6 +8,28 @@
     <!-- 문제 해결 카드들 -->
     <div class="space-y-6">
       <ProblemCard
+        icon="🚀"
+        title="GitHub Pages 동적 Import 실패 문제"
+        description="배포 환경에서 동적 import가 전면적으로 실패하는 문제 해결"
+        date="2025.09.08"
+        color="purple"
+        :problems="[
+          'GitHub Pages에서 동적 import 모듈 로드 실패',
+          'Failed to fetch dynamically imported module 에러 발생',
+          '모든 페이지에서 빈 화면 표시',
+          '라우터 이동은 되지만 컴포넌트 로드 실패',
+        ]"
+        :solutions="[
+          '동적 import를 정적 import로 전면 변경',
+          'Vite 설정에서 manualChunks: undefined 추가',
+          '라우터에서 import.meta.env.BASE_URL 사용',
+          '모든 컴포넌트를 파일 상단에서 미리 import',
+          'GitHub Pages 호환성 문제 완전 해결',
+        ]"
+        files="src/router/index.ts, vite.config.ts"
+      />
+
+      <ProblemCard
         icon="🗑️"
         title="불필요한 파일 정리"
         description="FixList2.vue 파일 삭제로 코드베이스 정리"
@@ -224,11 +246,11 @@
       <h3 class="text-xl font-bold mb-4">📈 해결 현황 요약</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="text-center">
-          <div class="text-3xl font-bold">11</div>
+          <div class="text-3xl font-bold">12</div>
           <div class="text-blue-100">해결된 문제</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold">10</div>
+          <div class="text-3xl font-bold">12</div>
           <div class="text-blue-100">수정된 파일</div>
         </div>
         <div class="text-center">
