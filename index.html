@@ -5,11 +5,11 @@
     <link rel="icon" type="image/x-icon" href="/project-log-book/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KDH's Project Log</title>
-    <script type="module" crossorigin src="/project-log-book/assets/index-DV6O6Wye.js"></script>
+    <script type="module" crossorigin src="/project-log-book/assets/index-CDnMat0M.js"></script>
     <link rel="stylesheet" crossorigin href="/project-log-book/assets/index-Bp_7IW3F.css">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"></div>
     <script>
       // GitHub Pages SPA 라우팅 처리
       (function(l) {
@@ -17,9 +17,15 @@
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          
+          var newPath = '/project-log-book' + decoded + l.hash;
+          
+          console.log('🔄 index.html URL 복원:', { 
+            original: l.href, 
+            newPath: newPath 
+          });
+          
+          window.history.replaceState(null, null, newPath);
         }
       }(window.location))
     </script>

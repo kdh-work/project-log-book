@@ -5,19 +5,25 @@
     <title>KDH's Project Log</title>
     <script type="text/javascript">
       // GitHub Pages SPA 라우팅 처리
-      // 404 페이지에서 index.html로 리다이렉트
-      var pathSegmentsToKeep = 0;
+      // 현재 경로를 index.html로 리다이렉트
+      var pathSegmentsToKeep = 1; // project-log-book 경로 유지
 
       var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      var redirectPath = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/project-log-book/' + '?/' +
+        l.pathname.split('/').slice(2).join('/').replace(/&/g, '~and~') +
         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+        l.hash;
+      
+      console.log('🔄 404.html 리다이렉트:', { 
+        original: l.href, 
+        redirect: redirectPath 
+      });
+      
+      l.replace(redirectPath);
     </script>
   </head>
   <body>
+    <p>리다이렉트 중...</p>
   </body>
 </html>
